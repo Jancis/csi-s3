@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/ctrox/csi-s3/pkg/s3"
+	"github.com/Jancis/csi-s3/pkg/s3"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 

@@ -40,7 +40,7 @@ type s3Volume struct {
 }
 
 var (
-	vendorVersion = "v1.1.1"
+	vendorVersion = "dev"
 	driverName    = "ch.ctrox.csi.s3-driver"
 )
 
@@ -82,7 +82,8 @@ func (s3 *s3) Run() {
 	// Initialize default library driver
 
 	s3.driver.AddControllerServiceCapabilities([]csi.ControllerServiceCapability_RPC_Type{csi.ControllerServiceCapability_RPC_CREATE_DELETE_VOLUME})
-	s3.driver.AddVolumeCapabilityAccessModes([]csi.VolumeCapability_AccessMode_Mode{csi.VolumeCapability_AccessMode_SINGLE_NODE_WRITER})
+	//s3.driver.AddVolumeCapabilityAccessModes([]csi.VolumeCapability_AccessMode_Mode{csi.VolumeCapability_AccessMode_SINGLE_NODE_WRITER})
+	s3.driver.AddVolumeCapabilityAccessModes([]csi.VolumeCapability_AccessMode_Mode{csi.VolumeCapability_AccessMode_MULTI_NODE_MULTI_WRITER})
 
 	// Create GRPC servers
 	s3.ids = s3.newIdentityServer(s3.driver)
